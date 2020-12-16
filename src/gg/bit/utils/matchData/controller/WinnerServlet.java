@@ -10,18 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import gg.bit.utils.matchData.dao.ChallengerDao;
-import gg.bit.utils.matchData.dao.ChallengerDaoMongo;
-import gg.bit.utils.matchData.vo.ChallengerVo;
-
-//import com.bit.utils.emaillist.dao.EmaillistDao;
-//import com.bit.utils.emaillist.dao.EmaillistDaoOrcl;
-//import com.bit.utils.emaillist.vo.EmaillistVo;
+import gg.bit.utils.matchData.dao.WinnerDao;
+import gg.bit.utils.matchData.dao.WinnerDaoMongo;
+import gg.bit.utils.matchData.vo.WinnerVo;
 
 // Controller 역할을 담당하는 Servlet
 // web.xml 내에 servlet 과 servlet-mapping 을 등록한 것과 동일한 효과
-@WebServlet(name="ChallengerMatchList", urlPatterns="/ch")
-public class ChallDataServlet extends HttpServlet {
+@WebServlet(name="WinnerMatchDataList", urlPatterns="/winner")
+public class WinnerServlet extends HttpServlet {
 
 //	@Override
 //	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -75,15 +71,30 @@ public class ChallDataServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
 		throws ServletException, IOException {
 		
-		ChallengerDao dao = new ChallengerDaoMongo();
-		List<ChallengerVo> list = dao.getList();
-		
-		req.setAttribute("list", list);
-		
-		RequestDispatcher rd = 
-				getServletContext()
-					.getRequestDispatcher("/WEB-INF/views/chall/index.jsp");
-		rd.forward(req, resp);
+		String action = req.getParameter("a");
+	
+		if ("plot".equals(action)) {
+			WinnerDao dao = new WinnerDaoMongo();
+			List<WinnerVo> list = dao.getList();
+			
+			req.setAttribute("list", list);
+			
+			RequestDispatcher rd = 
+					getServletContext()
+						.getRequestDispatcher("/winner/plot");
+			rd.forward(req, resp);
+			
+		} else {
+			WinnerDao dao = new WinnerDaoMongo();
+			List<WinnerVo> list = dao.getList();
+			
+			req.setAttribute("list", list);
+			
+			RequestDispatcher rd = 
+					getServletContext()
+						.getRequestDispatcher("/WEB-INF/views/winner/index.jsp");
+			rd.forward(req, resp);
+		}
 	}
 	
 }

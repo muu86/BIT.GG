@@ -1,4 +1,4 @@
-<%@page import="gg.bit.utlils.matchData.vo.ChallengerVo"%>
+<%@page import="gg.bit.utils.matchData.vo.ChallengerVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -18,7 +18,7 @@
 	<table border="1">
 		<tr>
 			<!--
-			<th>index</th> 
+		`	<th>index</th> 
 			 -->
 			<th>gameId</th>
 			<th>season</th>

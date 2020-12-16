@@ -1,4 +1,4 @@
-package gg.bit.utlils.matchData.vo;
+package gg.bit.utils.matchData.vo;
 
 public class ChallengerVo {
 //	private Long index;

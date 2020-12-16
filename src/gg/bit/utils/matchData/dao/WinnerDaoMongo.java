@@ -15,14 +15,14 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import gg.bit.utils.matchData.vo.ChallengerVo;
+import gg.bit.utils.matchData.vo.WinnerVo;
 
-public class ChallengerDaoMongo implements ChallengerDao {
+public class WinnerDaoMongo implements WinnerDao {
 	
 	private String ip = "192.168.56.101";
 //	private String port = "27017";
 	private String database = "lol";
-	private String collection = "challenger";
+	private String collection = "winner";
 	
 	private MongoClient connection() {
 		MongoClient mongoClient = 		
@@ -43,9 +43,9 @@ public class ChallengerDaoMongo implements ChallengerDao {
 		return collection;
 	}
 	
-	public List<ChallengerVo> getList() {
+	public List<WinnerVo> getList() {
 		// vo 객체 담을 list 생성
-		List<ChallengerVo> list = new ArrayList<>();
+		List<WinnerVo> list = new ArrayList<>();
 		
 		// 몽고 디비 접속 클라이언트
 		MongoClient mongoClient = null;
@@ -61,14 +61,10 @@ public class ChallengerDaoMongo implements ChallengerDao {
 			
 			for (Document doc: it) {
 				// vo 객체 생성
-				ChallengerVo vo = new ChallengerVo();
+				WinnerVo vo = new WinnerVo();
 				
 //				vo.setIndex(doc.getLong(""));
-				vo.setGameId(doc.getLong("gameId"));
-				vo.setSeason(doc.getInteger("season"));
-				vo.setRole(doc.getString("role"));
-				vo.setLane(doc.getString("lane"));
-				vo.setAccountId(doc.getString("accountId"));
+				vo.setFirstBlood(doc.getString("firstBlood"));
 				
 				// 리스트에 등록
 				list.add(vo);

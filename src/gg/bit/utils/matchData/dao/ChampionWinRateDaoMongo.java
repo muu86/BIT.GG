@@ -15,20 +15,19 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import gg.bit.utils.matchData.vo.WinnerVo;
+import gg.bit.utils.matchData.vo.ChampionWinOrLoseVo;
 
-public class WinnerDaoMongo implements WinnerDao {
-	
-	private String ip = "192.168.56.101";
+public class ChampionWinRateDaoMongo {
+	private String ip = "127.0.0.1";
 //	private String port = "27017";
 	private String database = "lol";
-	private String collection = "winner";
 	
 	private MongoClient connection() {
 		MongoClient mongoClient = 		
 				MongoClients.create(
 						MongoClientSettings.builder()
-						.applyToClusterSettings(builder ->
+						.applyToClusterSettings
+						(builder ->
 						builder.hosts(Arrays.asList(new ServerAddress(ip)))).build());
 		
 		return mongoClient;
@@ -38,14 +37,14 @@ public class WinnerDaoMongo implements WinnerDao {
 		throws MongoClientException {
 		
 		MongoDatabase database = mongoClient.getDatabase(this.database);
-		MongoCollection<Document> collection = database.getCollection(this.collection); 
+		MongoCollection<Document> collection = database.getCollection("match_data"); 
 				
 		return collection;
 	}
 	
-	public List<WinnerVo> getList() {
+	public List<ChampionWinOrLoseVo> getList() {
 		// vo 객체 담을 list 생성
-		List<WinnerVo> list = new ArrayList<>();
+		List<ChampionWinOrLoseVo> list = new ArrayList<>();
 		
 		// 몽고 디비 접속 클라이언트
 		MongoClient mongoClient = null;
@@ -61,13 +60,22 @@ public class WinnerDaoMongo implements WinnerDao {
 			
 			for (Document doc: it) {
 				// vo 객체 생성
-				WinnerVo vo = new WinnerVo();
+
+				List<Document> participantsList = doc.getList("participants", Document.class);
 				
-//				vo.setIndex(doc.getLong(""));
-				vo.setFirstBlood(doc.getString("firstBlood"));
-				
-				// 리스트에 등록
-				list.add(vo);
+				for (Document doc1 : participantsList) {
+					
+					ChampionWinOrLoseVo vo = new ChampionWinOrLoseVo();
+					
+					Integer championId = doc1.getInteger("championId");
+					vo.setChampionId(championId);
+					
+					String winOrLose = (String) doc1.get("stats", Document.class).get("win");
+					vo.setWinOrLose(winOrLose);
+					
+					// 리스트에 등록
+					list.add(vo);
+				}
 			}
 			
 		} catch (MongoClientException e) {

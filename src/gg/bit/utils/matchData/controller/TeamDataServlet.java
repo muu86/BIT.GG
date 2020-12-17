@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import gg.bit.utils.matchData.dao.WinnerDao;
-import gg.bit.utils.matchData.dao.WinnerDaoMongo;
-import gg.bit.utils.matchData.vo.WinnerVo;
+import gg.bit.utils.matchData.dao.TeamDao;
+import gg.bit.utils.matchData.dao.TeamDaoMongo;
+import gg.bit.utils.matchData.vo.TeamVo;
 
 // Controller 역할을 담당하는 Servlet
 // web.xml 내에 servlet 과 servlet-mapping 을 등록한 것과 동일한 효과
-@WebServlet(name="WinnerMatchDataList", urlPatterns="/winner")
-public class WinnerServlet extends HttpServlet {
+@WebServlet(name="TeamMatchDataList", urlPatterns="/team")
+public class TeamDataServlet extends HttpServlet {
 
 //	@Override
 //	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -73,20 +73,30 @@ public class WinnerServlet extends HttpServlet {
 		
 		String action = req.getParameter("a");
 	
-		if ("plot".equals(action)) {
-			WinnerDao dao = new WinnerDaoMongo();
-			List<WinnerVo> list = dao.getList();
+		if ("winner".equals(action)) {
+			TeamDao dao = new TeamDaoMongo();
+			List<TeamVo> list = dao.getList("winner");
 			
 			req.setAttribute("list", list);
 			
 			RequestDispatcher rd = 
 					getServletContext()
-						.getRequestDispatcher("/winner/plot");
+						.getRequestDispatcher("/team/plot");
 			rd.forward(req, resp);
 			
+		} else if ("loser".equals(action)) {
+			TeamDao dao = new TeamDaoMongo();
+			List<TeamVo> list = dao.getList("loser");
+			
+			req.setAttribute("list", list);
+			
+			RequestDispatcher rd = 
+					getServletContext()
+						.getRequestDispatcher("/team/plot");
+			rd.forward(req, resp);
 		} else {
-			WinnerDao dao = new WinnerDaoMongo();
-			List<WinnerVo> list = dao.getList();
+			TeamDao dao = new TeamDaoMongo();
+			List<TeamVo> list = dao.getList("winner");
 			
 			req.setAttribute("list", list);
 			

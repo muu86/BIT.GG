@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,18 +7,19 @@
 <title>bit.gg</title>
 </head>
 <body style="background-color:#7401DF; ">
-	<header style="display: block;"><!-- ╩С╢э гЛ╢У ╨н╨п ют╢о╢ы.  ╫цюша║ -->
+	
+	<header style="display: block;"><!-- Л┐│К▀╗ М≈╓К█■ К╤─К╤└ Л·┘К▀┬К▀╓.  Л▀°Л·▒Л═░ -->
 	<div style="display: none;height: 90px;background-color: #1d1a1a; text-align: center;font-size: 0;"></div>
 	<div style="position: sticky; z-index: 100;">
 	<div style="display: flex; flex-direction: row; flex-wrap: nowrap;position: relative;align-items: flex-start; box-sizing: border-box;height: 40;padding-left: 98px;"></div>
-	<div style="font-size: 0; height: 40px; overflow: hidden;"><!-- ╩С╢э╧ы DIV -->
+	<div style="font-size: 0; height: 40px; overflow: hidden;"><!-- Л┐│К▀╗К╟■ DIV -->
 	<span style="font-size: 24px; margin-left: 16px; vertical-align: middle;font-weight: bold; color:white;">BIT.GG</span></div><!-- BIt.GG--!>
 	<div style="height: 40px;line-height: 40px; padding: 0 12px 0 4px; margin: 0; color: #fff; background-color:#7401DF;">
-	<!-- гЛ╢Уюг ц╧╧Ьб╟ ╦╝╠в©ю╨Й ╥╧юЭ╣Е гЛ╢У ют╢о╢ы. -->
+	<!-- М≈╓К█■Л²≤ Л╡╚К╡┬Л╖╦ К╕╛Й╥╦Л≤╓К╦▄ К═┬Л═└К⌠° М≈╓К█■ Л·┘К▀┬К▀╓. -->
 	<img src = "https://opgg-gnb.akamaized.net/static/images/icons/img-navi-lol-white.svg" style=" width: 48px; height: 48px; vertical-align: middle;">
-	<span style="font-size: 24px; margin-left: 16px; vertical-align: middle;"><a href="#" style="text-decoration: none; color: white;">╦╝╠в©ю╨Й╥╧юЭ╣Е</a></span></div> 
+	<span style="font-size: 24px; margin-left: 16px; vertical-align: middle;"><a href="LeeagueOfLegends.html" style="text-decoration: none; color: white;">К╕╛Й╥╦Л≤╓К╦▄К═┬Л═└К⌠°</a></span></div> 
 	</header>
-	<!-- гЛ╢У ╧ь ╪╠ец ╧ы ют╢о╢ы. -->
+	<!-- М≈╓К█■ К╟▒ Л└═М┐² К╟■ Л·┘К▀┬К▀╓. -->
 	<div style="height: 48px; border-bottom: 1px solid; box-sizing: border-box;">
 	<ul style="max-width: 1300px; height: 48px; margin: 0 auto; display: flex; list-style: none; padding: 0">
 	<li style="letter-spacing: -0.5; margin-left:0; font-weight: 500; position: relative;height: 100%;display: flex; 
@@ -24,78 +27,53 @@
 	<a href = "https://www.acmicpc.net/" style="padding-top: 13px; padding-bottom: 9px;display: flex;color: white;text-decoration: none; 
 	font-family:Malgun Gothic, dotum;">
 	
-	# дз╣Е ╟Ь╨н гоюз</a>
-	</li><!-- дз╣Е ╟Ь╨н ╦╣е╘ ют╢о╢ы. -->
+	# Л╫■К⌠° ЙЁ╣К╤─ М∙≤Л·░</a>
+	</li><!-- Л╫■К⌠° ЙЁ╣К╤─ К╖│М│╛ Л·┘К▀┬К▀╓. -->
 	
 	<li style="letter-spacing: -0.5;margin-left: 0; font-weight: 500; position: relative;height: 100%;display: flex; 
 	line-height: 19px; font-size: 15px;box-sizing: border-box; ">
 	<a href = "champion" style="padding-top: 13px; padding-bottom: 9px; display: flex; color: white;font-weight: 500;margin-left: 24px;text-decoration: none;">
 	
 	
-	ц╗гг╬П ╨п╪╝</a>
-	</li><!-- ц╗гг╬П ╨п╪╝ ╦╣е╘ ╟и╬Наж╪╪©Д. -->
+	Л╠■М■╪Л√╦ К╤└Л└²</a>
+	</li><!-- Л╠■М■╪Л√╦ К╤└Л└² К╖│М│╛ Й╠╦Л√╢Лё╪Л└╦Л ■. -->
 	
 	<li style="letter-spacing: -0.5;margin-left: 0; font-weight: 500; position: relative;height: 100%;display: flex; 
 	line-height: 19px; font-size: 15px;box-sizing: border-box; ">
 	<a href = "team" style="padding-top: 13px; padding-bottom: 9px; display: flex; color: white; font-weight: 500;margin-left: 24px;text-decoration: none;">
 	
 	
-	еК╟Х</a>
-	</li><!-- еК╟Х ╦╣е╘ ╟и╬Наж╪╪©Д. -->
+	М├╣ЙЁ└</a>
+	</li><!-- М├╣ЙЁ└ К╖│М│╛ Й╠╦Л√╢Лё╪Л└╦Л ■. -->
 	
 	<li style="letter-spacing: -0.5;margin-left: 0; font-weight: 500; position: relative;height: 100%;display: flex; 
 	line-height: 19px; font-size: 15px;box-sizing: border-box; ">
 	<a href = "Par" style="padding-top: 13px; padding-bottom: 9px; display: flex; color: white; font-weight: 500;margin-left: 24px;text-decoration: none;">
 	
 	
-	╦чд║╨п╪╝</a>
-	</li><!-- ╦чд║╨п╪╝ ╦╣е╘ ╟и╬Наж╪╪©Д. -->
+	К╘■Л╧≤К╤└Л└²</a>
+	</li><!-- К╘■Л╧≤К╤└Л└² К╖│М│╛ Й╠╦Л√╢Лё╪Л└╦Л ■. -->
 	
-				<li style="letter-spacing: -0.5;margin-left: 0; font-weight: 500; position: relative;height: 100%;display: flex; 
+			<li style="letter-spacing: -0.5;margin-left: 0; font-weight: 500; position: relative;height: 100%;display: flex; 
 	line-height: 19px; font-size: 15px;box-sizing: border-box; ">
 	<a href = "team?a=winner" style="padding-top: 13px; padding-bottom: 9px; display: flex; color: white; font-weight: 500;margin-left: 24px;text-decoration: none;">
 	
 	
-	╫бюз╣╔юлем ╨п╪╝</a>
-	</li><!-- ╫бюз╣╔юлем ╦╣е╘ ╟и╬Наж╪╪©Д. -->
+	Л┼╧Л·░К█╟Л²╢М└╟ К╤└Л└²</a>
+	</li><!-- Л┼╧Л·░К█╟Л²╢М└╟ К╖│М│╛ Й╠╦Л√╢Лё╪Л└╦Л ■. -->
 	
 		<li style="letter-spacing: -0.5;margin-left: 0; font-weight: 500; position: relative;height: 100%;display: flex; 
 	line-height: 19px; font-size: 15px;box-sizing: border-box; ">
 	<a href = "team?a=loser" style="padding-top: 13px; padding-bottom: 9px; display: flex; color: white; font-weight: 500;margin-left: 24px;text-decoration: none;">
 	
 	
-	фпюз╣╔юлем ╨п╪╝</a>
-	</li><!-- фпюз╣╔юлем ╦╣е╘ ╟и╬Наж╪╪©Д. --> <!-- х╜юлфц -->
-	
+	М▄╗Л·░К█╟Л²╢М└╟ К╤└Л└²</a>
+	</li><!-- М▄╗Л·░К█╟Л²╢М└╟ К╖│М│╛ Й╠╦Л√╢Лё╪Л└╦Л ■. --> <!-- М≥■Л²╢М▄┘ -->
 	</ul>
 	
-	<!-- Body container -->
+	<!-- Header container -->
 	</div>
-	<div class ="l-container"style ="width:1080; margin:auto;position: relative;min-height: 700px; padding-bottom: 120px;">
-	<div class = "index-log" style="padding: 32px 0 24px; display: block;">
-	<div style="width: 1080; height: 200;">
-	<img src = "https://attach.s.op.gg/logo/20201214005631.afbfbe971077ae2e5d365194485deb12.png" 
-	style = "display:block; margin:0 auto; margin-top: 150px; height:200px;"title ="╥╪" alt = "op.gg. LOGO(╥╪)"></div></div> 
-	<form style = "position:relative; width:624px; margin: auto; border-radius:2px; background-color: #fff">
-	<input type ="text" style = "width: 100%; padding:15px 150px 18px 17px; background:none; line-height: 17px; font-size:14px; color:#9b9b9b;box-sizing:border-box; outline: none; 
-	box-shadow: 0 2px 0 2px reba(0, 0, 0, 0.19);" placeholder = "╨Яф╝╪Ж╟╜╩Щ ©╘╥╞╨п, ╪рх╞╩Г╦Мю╩ Ёж╬Наж╪╪©Д....">
-	
-	<!--  -->
-	<button type = "submit" style = "display: flex; position: absolute; top:0; right: 0;border-radius:3px; border: 1px solid #4C0B5F;
-	margin: 10px 10px 0 0; height: 30px; padding: 0; border:none; background-color: #8A0868;font-weight: bold; text-align: center;font-size: 20px;" >
-	<i style=" background-position:-90px -797px; height: 30px; display: inline-block; vertical-align: middle; text-indent: -99999px; "></i>BIT.GG</button>
-	<!-- select box -->
-	
-	
 
-	
-	
-	</form>
-	
-	
-	
-
-	</div>
 	
 </body>
 </html>

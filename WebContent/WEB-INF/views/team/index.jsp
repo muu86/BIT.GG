@@ -10,31 +10,40 @@
 <title>팀 매치 데이터</title>
 </head>
 <body>
-	
-	<h1>팀 매치 데이터입니다</h1>
-	<a href="team?a=winner">승자 그래프 보기</a>
-	<a href="team?a=loser">패자 그래프 보기</a>
-	<img src="images/blood.png">
+
+	<jsp:include page="/pages/header.jsp" />
 	
 	<%
-			List<TeamVo> list = (List<TeamVo>) request.getAttribute("list");
-		%>
+	List<TeamVo> list = (List<TeamVo>) request.getAttribute("list");
+	%>
 	
 	<%
-			for (TeamVo vo: list) {
-		%>
+	for (TeamVo vo: list) {
+	%>
 	<table border="1">
 		<tr>
 			<!--
 			<th>index</th> 
 			 -->
+			<th>gameId</th>
 			<th>firstBlood</th>
+			<th>firstTower</th>
+			<th>firstInhibitor</th>
+			<th>firstBaron</th>
+			<th>firstRiftHerald</th>
+			<th>dragonKills</th>
 		</tr>
 		<tr>
 			<%-- 
 			<td><%= vo.getIndex() %></td>
 			 --%>
+			<td><%= vo.getGameId() %></td> 
 			<td><%= vo.getFirstBlood() %></td>
+			<td><%= vo.getFirstTower() %></td>
+			<td><%= vo.getFirstInhibitor() %></td>
+			<td><%= vo.getFirstBaron() %></td>
+			<td><%= vo.getFirstRiftHerald() %></td>
+			<td><%= vo.getDragonKills() %></td>
 		</tr>
 	</table>
 	<% } %>

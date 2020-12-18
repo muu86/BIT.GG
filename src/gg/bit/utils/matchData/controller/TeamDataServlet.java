@@ -102,7 +102,7 @@ public class TeamDataServlet extends HttpServlet {
 			
 			RequestDispatcher rd = 
 					getServletContext()
-						.getRequestDispatcher("/WEB-INF/views/winner/index.jsp");
+						.getRequestDispatcher("/WEB-INF/views/team/index.jsp");
 			rd.forward(req, resp);
 		}
 	}

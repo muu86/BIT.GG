@@ -9,6 +9,9 @@
 <title>챌린저 매치 데이터</title>
 </head>
 <body>
+
+	<jsp:include page="/pages/header.jsp" />
+	
 	<h1>챌린저 매치 데이터입니다</h1>
 	<%
 	List<ChallengerVo> list = (List<ChallengerVo>) request.getAttribute("list");

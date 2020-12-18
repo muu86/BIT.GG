@@ -16,7 +16,7 @@ import gg.bit.utils.matchData.dao.TeamDaoMongo;
 import gg.bit.utils.matchData.vo.TeamVo;
 import jep.*;
 
-@WebServlet(name="WinnerDataPlot", urlPatterns="/team/plot")
+@WebServlet(name="TeamDataPlot", urlPatterns="/team/plot")
 public class TeamDataPlot extends HttpServlet {
 
 	@Override
@@ -30,10 +30,10 @@ public class TeamDataPlot extends HttpServlet {
 		String firstRiftHeraldImgName = null;
 		String dragonKillsImgName = null;
 		
-		Interpreter interp = null; 
+//		Interpreter interp = null; 
 		
-		try {
-			interp = new SharedInterpreter();
+		try (Interpreter interp = new SharedInterpreter()) {
+			
 //			interp.exec("from java.lang import System");
 //			interp.exec("import sys");
 //			interp.exec("sys.argv.append('')");
@@ -61,18 +61,8 @@ public class TeamDataPlot extends HttpServlet {
 			interp.exec("first_riftHerald_list = []");
 			interp.exec("dragon_kills_list = []");
 			
-			// first blood list
+			// 반복문으로 각 리스트에 값 append
 			interp.exec("for vo in data:\n\tfirst_blood_list.append(vo.getFirstBlood())\n\tfirst_tower_list.append(vo.getFirstTower())\n\tfirst_inhibitor_list.append(vo.getFirstInhibitor())\n\tfirst_baron_list.append(vo.getFirstBaron())\n\tfirst_riftHerald_list.append(vo.getFirstRiftHerald())\n\tdragon_kills_list.append(vo.getDragonKills())");
-			// first tower list
-			interp.exec("for vo in data:\n\tfirst_tower_list.append(vo.getFirstTower())");
-			// first inhibitor list
-			interp.exec("for vo in data:\n\tfirst_inhibitor_list.append(vo.getFirstInhibitor())");
-			// first baron list
-			interp.exec("for vo in data:\n\tfirst_baron_list.append(vo.getFirstBaron())");
-			// first riftHerald list
-			interp.exec("for vo in data:\n\tfirst_riftHerald_list.append(vo.getFirstRiftHerald())");
-			// dragon kills counts
-			interp.exec("for vo in data:\n\tdragon_kills_list.append(vo.getDragonKills())");
 			
 			// True, False 만으로 구성된 데이터  (First ~~)
 			interp.exec("blood_data = [ first_blood_list.count('True'), first_blood_list.count('False')]");
@@ -159,14 +149,7 @@ public class TeamDataPlot extends HttpServlet {
 		} catch (JepException e) {
 			System.out.println("Jep 예외 발생\n");
 			e.printStackTrace();
-		} finally {
-			try {
-				interp.close();
-			} catch (JepException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-		}
+		} 
 		
 		req.setAttribute("blood_img", firstBloodImgName);
 		req.setAttribute("tower_img", firstTowerImgName);
@@ -177,7 +160,7 @@ public class TeamDataPlot extends HttpServlet {
 		
 		RequestDispatcher rd = 
 				getServletContext()
-					.getRequestDispatcher("/WEB-INF/views/winner/winner_plot.jsp");
+					.getRequestDispatcher("/WEB-INF/views/team/team_plot.jsp");
 		rd.forward(req, resp);
 		
 	}

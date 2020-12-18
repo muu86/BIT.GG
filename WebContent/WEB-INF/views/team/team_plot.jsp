@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<jsp:include page="/pages/header.jsp" />
 	
 	<% String bloodImg = (String) request.getAttribute("blood_img"); %>
 	<% String towerImg = (String) request.getAttribute("tower_img"); %>
